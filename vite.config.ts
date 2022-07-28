@@ -43,6 +43,7 @@ export default defineConfig({
       dts: path.resolve(autoImportPath, 'auto-imports.d.ts'),
     }),
     Components({
+      dirs: ['src/modules/**/components'],
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({ enabledCollections: ['ep'] }),

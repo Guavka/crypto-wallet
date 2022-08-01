@@ -20,6 +20,7 @@
     "strict": false,
     "sourceMap": true,
     "composite": true,
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
       "@/*": [

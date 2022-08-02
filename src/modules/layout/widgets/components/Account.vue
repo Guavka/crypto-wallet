@@ -2,7 +2,7 @@
   <v-menu bottom left min-width="200" offset-y origin="top right" transition="scale-transition">
     <template v-slot:activator="{ attrs, on }">
       <v-btn class="ml-2" min-width="0" text v-bind="attrs" v-on="on">
-        <v-icon>mdi-account</v-icon>
+        <v-icon size="large">mdi-account</v-icon>
       </v-btn>
     </template>
 

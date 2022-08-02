@@ -1,35 +1,25 @@
 <template>
-  <v-menu bottom left offset-y origin="top right" transition="scale-transition">
+  <v-menu transition="scale-transition">
     <template v-slot:activator="{ props }">
-      <v-btn class="ml-2" min-width="0" text v-bind="props">
-        <v-badge bordered color="red" overlap>
-          <template v-slot:badge>
-            <span>5</span>
-          </template>
-
-          <v-icon>mdi-bell</v-icon>
+      <v-btn class="ma-2" v-bind="props">
+        <v-badge color="error" :content="notifyArray.length" :max="5">
+          <v-icon size="large">{{ notifyIcon }}</v-icon>
         </v-badge>
       </v-btn>
     </template>
 
-    <v-list flat nav>
-      <app-bar-item v-for="(n, i) in notifications" :key="i" link>
-        <v-list-item-content>
-          <v-list-item-title>{{ n }} </v-list-item-title>
-        </v-list-item-content>
-      </app-bar-item>
-    </v-list>
+    <v-list nav :items="notifyArray" />
   </v-menu>
 </template>
 
 <script setup lang="ts">
-const notifications = [
-  'Mike John Responded to your email',
-  'You have 5 new tasks',
-  'You\'re now friends with Andrew',
-  'Another Notification',
-  'Another one',
-]
+export interface Prop {
+  notifications: string[],
+  icon?: string
+}
+const props = defineProps<Prop>()
+const notifyArray = computed(() => { return props.notifications || ['test1', 'test2'] })
+const notifyIcon = computed(() => { return props.icon || 'mdi-bell' })
 </script>
 
 <style scoped>

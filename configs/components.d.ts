@@ -7,6 +7,17 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Account: typeof import('./../src/modules/layout/widgets/components/Account.vue')['default']
+    AppDrawer: typeof import('./../src/modules/layout/drawer/components/AppDrawer.vue')['default']
+    AppFooter: typeof import('./../src/modules/layout/footer/components/AppFooter.vue')['default']
+    AppHeader: typeof import('./../src/modules/layout/header/components/AppHeader.vue')['default']
+    AppSettings: typeof import('./../src/modules/layout/settings/components/AppSettings.vue')['default']
+    DefaultLayout: typeof import('./../src/views/DefaultLayout.vue')['default']
+    DrawerToggle: typeof import('./../src/modules/layout/widgets/components/DrawerToggle.vue')['default']
+    GoHome: typeof import('./../src/modules/layout/widgets/components/GoHome.vue')['default']
+    HeaderSearch: typeof import('./../src/modules/layout/widgets/components/HeaderSearch.vue')['default']
+    MainView: typeof import('./../src/views/MainView.vue')['default']
+    Notifications: typeof import('./../src/modules/layout/widgets/components/Notifications.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

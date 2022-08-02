@@ -17,6 +17,7 @@ const srcPath = fileURLToPath(new URL('src', import.meta.url))
 const autoImportPath = fileURLToPath(new URL('configs/', srcURL))
 const modulesPath = fileURLToPath(new URL('modules/', srcURL))
 const pluginsPath = fileURLToPath(new URL('plugins/', srcURL))
+const layoutsPath = fileURLToPath(new URL('layouts/', srcURL))
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -36,11 +37,11 @@ export default defineConfig({
         enabled: true,
         filepath: path.resolve(autoImportPath, '.eslintrc-auto-import.json'),
       },
-      dirs: ['./src/modules/**/*components/*.vue'],
       dts: path.resolve(autoImportPath, 'auto-imports.d.ts'),
     }),
     Components({
       dts: path.resolve(autoImportPath, 'components.d.ts'),
+      dirs: ['./src/modules/**/components/', './src/views/'],
     }),
     Inspect(),
   ],
@@ -48,7 +49,8 @@ export default defineConfig({
     alias: {
       '@src': srcPath,
       '@modules': modulesPath,
-      '@plugins': pluginsPath
+      '@plugins': pluginsPath,
+      '@layouts': layoutsPath
     },
   }
 });

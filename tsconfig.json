@@ -17,15 +17,24 @@
     "src/**/__tests__/*"
   ],
   "compilerOptions": {
-    "strict": false,
+    "strict": true,
     "sourceMap": true,
     "composite": true,
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
+      "@src/*": [
         "./src/*"
-      ]
+      ],
+      "@modules/*": [
+        "./src/modules"
+      ],
+      "@plugins/*": [
+        "./src/plugins"
+      ],
+      "@layouts/*": [
+        "./src/layouts"
+      ],
     },
     "lib": [
       "esnext",
@@ -35,7 +44,9 @@
     "types": [
       "vite/client",
       "vitest/globals",
-      "vuetify"
+      "vuetify",
+      "vue-meta",
+      "pinia"
     ]
   }
 }

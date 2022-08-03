@@ -13,11 +13,8 @@ declare module '@vue/runtime-core' {
     AppHeader: typeof import('./../src/modules/layout/header/components/AppHeader.vue')['default']
     AppSettings: typeof import('./../src/modules/layout/settings/components/AppSettings.vue')['default']
     DefaultLayout: typeof import('./../src/views/DefaultLayout.vue')['default']
-    DrawerToggle: typeof import('./../src/modules/layout/widgets/components/DrawerToggle.vue')['default']
-    GoHome: typeof import('./../src/modules/layout/widgets/components/GoHome.vue')['default']
-    HeaderSearch: typeof import('./../src/modules/layout/widgets/components/HeaderSearch.vue')['default']
     MainView: typeof import('./../src/views/MainView.vue')['default']
-    Notifications: typeof import('./../src/modules/layout/widgets/components/Notifications.vue')['default']
+    NotificationsWidget: typeof import('./../src/modules/layout/widgets/components/NotificationsWidget.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

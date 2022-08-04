@@ -1,50 +1,33 @@
 <template>
   <v-app-bar id="default-app-bar" color="background" flat>
     <template v-slot:prepend>
-      <v-app-bar-nav-icon @click="store.toggleDrawer" :icon="icon" />
+      <v-app-bar-nav-icon @click="store.toggleDrawer" :icon="iconComp" />
     </template>
 
     <v-toolbar-title class="font-weight-light text-h5">{{ store.headerTitle }}</v-toolbar-title>
-
     <v-spacer />
-    <v-switch v-model="isLight"></v-switch>
-
-    <v-btn class="ml-2" to="/" :variant="variant">
-      <v-icon icon="mdi-view-dashboard" size="large" />
-    </v-btn>
-
+    <ThemeToggler light-theme-name="lightTheme" dark-theme-name="darkTheme" />
+    <GoPath class="ml-2" path="/" />
     <NotificationsWidget :notifications="notifications" />
-    <Account />
   </v-app-bar>
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import { useTheme } from 'vuetify/lib/framework.mjs';
 import { useLayoutStore } from '../../store/layout';
+import type { NotificationData } from '../../widgets/notification/types/notificationData'
 
 const store = useLayoutStore()
-const route = useRoute()
-const theme = useTheme()
+const iconComp = computed(() => { return store.drawer ? 'mdi-format-list-bulleted' : 'mdi-dots-vertical' })
 
-const variant = computed(() => { return route.path === '/' ? 'tonal' : 'text' })
-const icon = computed(() => { return store.drawer ? 'mdi-format-list-bulleted' : 'mdi-dots-vertical' })
-
-const isLight = ref(!theme.global.current.value.dark)
-
-const notifications = [
+const notifications: NotificationData[] = [
   { text: '+1000', icon: 'mdi-arrow-up' },
   { text: '-500', icon: 'mdi-arrow-down' },
   { text: 'New friend', icon: 'mdi-account' },
 ]
-
-const onChangeSwitch = (value: boolean) => {
-  console.log('terer')
-  theme.global.name.value = value ? 'lightTheme' : 'darkTheme'
-}
-
-watch(isLight, onChangeSwitch)
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.switch {
+  max-width: 75px;
+}
 </style>

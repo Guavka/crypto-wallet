@@ -4,8 +4,9 @@
       <v-app-bar-nav-icon @click="store.toggleDrawer" :icon="iconComp" />
     </template>
 
-    <v-toolbar-title class="font-weight-light text-h5">{{ store.headerTitle }}</v-toolbar-title>
+    <v-toolbar-title class="font-weight-light text-h5">{{ $t("header.title") }}</v-toolbar-title>
     <v-spacer />
+    <LangSelector />
     <ThemeToggler light-theme-name="lightTheme" dark-theme-name="darkTheme" />
     <GoPath class="ml-2" path="/" />
     <NotificationsWidget :notifications="notifications" />
@@ -17,6 +18,7 @@ import { useLayoutStore } from '../../store/layout';
 import type { NotificationData } from '../../widgets/notification/types/notificationData'
 
 const store = useLayoutStore()
+
 const iconComp = computed(() => { return store.drawer ? 'mdi-format-list-bulleted' : 'mdi-dots-vertical' })
 
 const notifications: NotificationData[] = [

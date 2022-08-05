@@ -8,15 +8,14 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AppDrawer: typeof import('./../src/modules/layout/drawer/components/AppDrawer.vue')['default']
-    AppFooter: typeof import('./../src/modules/layout/footer/components/AppFooter.vue')['default']
     AppHeader: typeof import('./../src/modules/layout/header/components/AppHeader.vue')['default']
-    AppSettings: typeof import('./../src/modules/layout/settings/components/AppSettings.vue')['default']
     DefaultLayout: typeof import('./../src/views/DefaultLayout.vue')['default']
-    GoPath: typeof import('./../src/modules/layout/widgets/components/GoPath.vue')['default']
+    GoPath: typeof import('./../src/modules/layout/widgets/goPath/components/GoPath.vue')['default']
+    LangSelector: typeof import('./../src/modules/layout/widgets/languageSelector/components/LangSelector.vue')['default']
     MainView: typeof import('./../src/views/MainView.vue')['default']
     NotificationsWidget: typeof import('./../src/modules/layout/widgets/notification/components/NotificationsWidget.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ThemeToggler: typeof import('./../src/modules/layout/widgets/components/ThemeToggler.vue')['default']
+    ThemeToggler: typeof import('./../src/modules/layout/widgets/themeToggler/components/ThemeToggler.vue')['default']
   }
 }

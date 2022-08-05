@@ -1,7 +1,6 @@
 import type { LayoutState } from "./types/layoutState";
 
 const layoutState: LayoutState = {
-  headerTitle: 'Dashboard',
   drawer: true
 }
 

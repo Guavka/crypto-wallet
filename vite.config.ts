@@ -12,12 +12,19 @@ import Inspect from 'vite-plugin-inspect';
 
 import vuetify from 'vite-plugin-vuetify';
 
-const srcURL = new URL('./src', import.meta.url)
-const srcPath = fileURLToPath(new URL('src', import.meta.url))
-const autoImportPath = fileURLToPath(new URL('configs/', srcURL))
+const folderURL = new URL('src', import.meta.url)
+
+const autoImportPath = fileURLToPath(new URL('configs/', folderURL))
+const srcPath = fileURLToPath(new URL('src', folderURL))
+
+const srcURL = new URL('src/', folderURL)
+
+const assetsPath = fileURLToPath(new URL('assets/', srcURL))
 const modulesPath = fileURLToPath(new URL('modules/', srcURL))
 const pluginsPath = fileURLToPath(new URL('plugins/', srcURL))
-const layoutsPath = fileURLToPath(new URL('layouts/', srcURL))
+const routerPath = fileURLToPath(new URL('router/', srcURL))
+const stylesPath = fileURLToPath(new URL('styles/', srcURL))
+const viewsPath = fileURLToPath(new URL('views/', srcURL))
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -41,16 +48,20 @@ export default defineConfig({
     }),
     Components({
       dts: path.resolve(autoImportPath, 'components.d.ts'),
-      dirs: ['./src/modules/**/components/', './src/views/'],
+      dirs: ['./src/modules/layout/**./*.vue', './src/modules/**/components/', './src/views/'],
     }),
     Inspect(),
   ],
   resolve: {
     alias: {
       '@src': srcPath,
+      '@assets': assetsPath,
+      '@router': routerPath,
+      '@styles': stylesPath,
       '@modules': modulesPath,
       '@plugins': pluginsPath,
-      '@layouts': layoutsPath
+      '@views': viewsPath
     },
   }
 });
+

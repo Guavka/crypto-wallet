@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { LanguageType } from '../../../../../plugins/i18n/localizationTypes.js';
+import { LanguageType } from "@plugins/i18n/localizationTypes";
 import { useStorage } from 'vue3-storage';
 import { useI18n } from 'vue-i18n';
 

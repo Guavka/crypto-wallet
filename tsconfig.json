@@ -26,14 +26,23 @@
       "@src/*": [
         "./src/*"
       ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@router/*": [
+        "./src/router/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
       "@modules/*": [
-        "./src/modules"
+        "./src/modules/*"
       ],
       "@plugins/*": [
-        "./src/plugins"
+        "./src/plugins/*"
       ],
-      "@layouts/*": [
-        "./src/layouts"
+      "@views/*": [
+        "./src/views/*"
       ],
     },
     "lib": [

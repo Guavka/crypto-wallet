@@ -9,3 +9,5 @@ export interface NotificationColors {
   error: string,
   info: string
 }
+
+import { LanguageType } from "@plugins/i18n/localizationTypes";
